@@ -1,0 +1,78 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.versions = [
+            'minSdk'           : 16,
+            'compileSdk'       : 27,
+            'buildTools'       : '27.1.1',
+            'androidPlugin'    : '3.1.2',
+            'kotlin'           : '1.2.40',
+            'archComp'         : '1.1.0',
+            'constraint'       : '1.0.2',
+            'liveData'         : '1.1.1',
+            'room'             : '1.1.0',
+            'paging'           : '1.0.0',
+            'gson'             : '2.8.0',
+            'retrofit'         : '2.3.0',
+            'retrofitRxAdapter': '1.0.0',
+            'okhttp'           : '3.9.0',
+            'picasso'          : '2.5.2',
+            'rxJava'           : '2.1.7',
+            'rxAndroid'        : '2.0.1'
+    ]
+
+    ext.deps = [
+            android  : [
+                    'gradlePlugin'   : "com.android.tools.build:gradle:${versions.androidPlugin}"
+            ],
+            support  : [
+                    'appCompat'    : "com.android.support:appcompat-v7:${versions.buildTools}",
+                    'recyclerView' : "com.android.support:recyclerview-v7:${versions.buildTools}",
+                    'support'      : "com.android.support:support-v4:${versions.buildTools}",
+                    'constraint'   : "com.android.support.constraint:constraint-layout:${versions.constraint}"
+            ],
+            kotlin   : [
+                    'gradlePlugin': "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}",
+                    'stdlib'      : "org.jetbrains.kotlin:kotlin-stdlib-jre7:${versions.kotlin}",
+            ],
+            google   : [
+                    'gson'             : "com.google.code.gson:gson:${versions.gson}",
+                    'liveDataProcessor': "android.arch.lifecycle:compiler:${versions.liveData}",
+                    'liveData'         : "android.arch.lifecycle:extensions:${versions.liveData}",
+                    'room'             : "android.arch.persistence.room:runtime:${versions.room}",
+                    'roomProcessor'    : "android.arch.persistence.room:compiler:${versions.room}",
+                    'roomRx'           : "android.arch.persistence.room:rxjava2:${versions.room}",
+                    'paging'           : "android.arch.paging:runtime:${versions.paging}"
+            ],
+            square   : [
+                    'retrofit'         : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+                    'gsonConverter'    : "com.squareup.retrofit2:converter-gson:${versions.retrofit}",
+                    'okhttp'           : "com.squareup.okhttp3:okhttp:${versions.okhttp}",
+                    'picasso'          : "com.squareup.picasso:picasso:${versions.picasso}",
+                    'retrofitRxAdapter': "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:${versions.retrofitRxAdapter}"
+            ]
+    ]
+
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath deps.android.gradlePlugin
+        classpath deps.kotlin.gradlePlugin
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
