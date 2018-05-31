@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion versions.compileSdk
     defaultConfig {
@@ -41,4 +43,10 @@ dependencies {
     implementation deps.square.okhttp
     implementation deps.square.gsonConverter
     implementation deps.square.retrofitRxAdapter
+
+    implementation deps.reactivex.rxJava
+    implementation deps.reactivex.rxAndroid
+
+    implementation deps.google.dagger
+    kapt deps.google.daggerProcessor
 }

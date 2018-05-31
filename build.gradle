@@ -18,7 +18,8 @@ buildscript {
             'okhttp'           : '3.9.0',
             'picasso'          : '2.5.2',
             'rxJava'           : '2.1.7',
-            'rxAndroid'        : '2.0.1'
+            'rxAndroid'        : '2.0.1',
+            'dagger'           : '2.12'
     ]
 
     ext.deps = [
@@ -36,6 +37,8 @@ buildscript {
                     'stdlib'      : "org.jetbrains.kotlin:kotlin-stdlib-jre7:${versions.kotlin}",
             ],
             google   : [
+                    'dagger'           : "com.google.dagger:dagger:${versions.dagger}",
+                    'daggerProcessor'  : "com.google.dagger:dagger-compiler:${versions.dagger}",
                     'gson'             : "com.google.code.gson:gson:${versions.gson}",
                     'liveDataProcessor': "android.arch.lifecycle:compiler:${versions.liveData}",
                     'liveData'         : "android.arch.lifecycle:extensions:${versions.liveData}",
@@ -50,6 +53,10 @@ buildscript {
                     'okhttp'           : "com.squareup.okhttp3:okhttp:${versions.okhttp}",
                     'picasso'          : "com.squareup.picasso:picasso:${versions.picasso}",
                     'retrofitRxAdapter': "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:${versions.retrofitRxAdapter}"
+            ],
+            reactivex: [
+                    'rxJava'   : "io.reactivex.rxjava2:rxjava:${versions.rxJava}",
+                    'rxAndroid': "io.reactivex.rxjava2:rxandroid:${versions.rxAndroid}"
             ]
     ]
 
